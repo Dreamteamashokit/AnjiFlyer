@@ -16,7 +16,7 @@ export default function Footer() {
       <p className="footer__contact">
         <a href="tel:7044538444">📞 704-453-8444 & 980-417-9514</a>
         &nbsp;|&nbsp;
-        <a href="mailto:anjio2162012@gmail.com">📧 anjio2162012@gmail.com</a>
+        <a href="mailto:anji02162012@gmail.com">📧 anji02162012@gmail.com</a>
       </p>
       <p className="footer__copy">&copy; {year} All rights reserved.</p>
     </footer>

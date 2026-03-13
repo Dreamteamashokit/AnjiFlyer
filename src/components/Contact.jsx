@@ -10,7 +10,7 @@ import './Contact.css'
 //  2. Click "New Form" → name it "Neighborhood Shine"
 //  3. Copy the 8-character form ID (looks like: xpwzgkna)
 //  4. Paste it below replacing YOUR_FORM_ID
-//  5. Save — every submission now emails anjio2162012@gmail.com
+//  5. Save — every submission now emails anji02162012@gmail.com
 // ─────────────────────────────────────────────────────────────
 const FORMSPREE_ID = 'YOUR_FORM_ID'   // ← replace this
 
@@ -55,8 +55,8 @@ export default function Contact() {
             </ContactInfoItem>
 
             <ContactInfoItem icon="📧" label="Email Us">
-              <a href="mailto:anjio2162012@gmail.com" className="contact-link">
-                anjio2162012@gmail.com
+              <a href="mailto:anji02162012@gmail.com" className="contact-link">
+                anji02162012@gmail.com
               </a>
             </ContactInfoItem>
 
@@ -114,7 +114,7 @@ export default function Contact() {
                     </FormGroup>
 
                     {/* Hidden email field so Formspree knows where to reply */}
-                    <input type="hidden" name="_replyto" value="anjio2162012@gmail.com" />
+                    <input type="hidden" name="_replyto" value="anji02162012@gmail.com" />
 
                     <FormGroup label="Service Needed" htmlFor="service">
                       <select id="service" name="service" required defaultValue="">
