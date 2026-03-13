@@ -389,6 +389,12 @@
   color: var(--blue);
 }
 
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
 .field-label input,
 .field-label select {
   padding: 10px 14px;

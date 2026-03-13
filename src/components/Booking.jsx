@@ -78,7 +78,7 @@ export default function Booking() {
 
   // Booking modal state
   const [bookingTarget, setBookingTarget] = useState(null) // { date, slot }
-  const [form, setForm] = useState({ name: '', phone: '', email: '', service: SERVICES[0] })
+  const [form, setForm] = useState({ name: '', phone: '', email: '', service: SERVICES[0], street: '', city: '', pincode: '' })
   const [formError, setFormError] = useState('')
   const [successMsg, setSuccessMsg] = useState('')
 
@@ -101,7 +101,7 @@ export default function Booking() {
   const openBooking = (date, slot) => {
     if (isSlotBooked(date, slot.id)) return
     setBookingTarget({ date, slot })
-    setForm({ name: '', phone: '', email: '', service: SERVICES[0] })
+    setForm({ name: '', phone: '', email: '', service: SERVICES[0], street: '', city: '', pincode: '' })
     setFormError('')
   }
 
@@ -109,6 +109,9 @@ export default function Booking() {
   const confirmBooking = () => {
     if (!form.name.trim()) return setFormError('Please enter your name.')
     if (!form.phone.trim()) return setFormError('Please enter your phone number.')
+    if (!form.street.trim()) return setFormError('Please enter your street address.')
+    if (!form.city.trim()) return setFormError('Please enter your city.')
+    if (!form.pincode.trim()) return setFormError('Please enter your pin code.')
 
     const key = slotKey(bookingTarget.date, bookingTarget.slot.id)
     const updated = {
@@ -210,6 +213,9 @@ export default function Booking() {
                       <th>Name</th>
                       <th>Phone</th>
                       <th>Email</th>
+                      <th>Address</th>
+                      <th>City</th>
+                      <th>Pin Code</th>
                       <th>Service</th>
                       <th>Booked At</th>
                       <th></th>
@@ -230,6 +236,9 @@ export default function Booking() {
                             <td>{b.name}</td>
                             <td>{b.phone}</td>
                             <td>{b.email || '—'}</td>
+                            <td>{b.street || '—'}</td>
+                            <td>{b.city || '—'}</td>
+                            <td>{b.pincode || '—'}</td>
                             <td>{b.service}</td>
                             <td>{new Date(b.bookedAt).toLocaleString()}</td>
                             <td>
@@ -354,6 +363,38 @@ export default function Booking() {
                   placeholder="you@example.com"
                 />
               </label>
+
+              <label className="field-label">
+                Street Address *
+                <input
+                  type="text"
+                  value={form.street}
+                  onChange={e => setForm(f => ({ ...f, street: e.target.value }))}
+                  placeholder="123 Maple Street"
+                />
+              </label>
+
+              <div className="field-row">
+                <label className="field-label">
+                  City *
+                  <input
+                    type="text"
+                    value={form.city}
+                    onChange={e => setForm(f => ({ ...f, city: e.target.value }))}
+                    placeholder="Charlotte"
+                  />
+                </label>
+                <label className="field-label">
+                  Pin Code *
+                  <input
+                    type="text"
+                    value={form.pincode}
+                    onChange={e => setForm(f => ({ ...f, pincode: e.target.value }))}
+                    placeholder="28078"
+                    maxLength={10}
+                  />
+                </label>
+              </div>
 
               <label className="field-label">
                 Service
