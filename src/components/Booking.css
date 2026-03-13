@@ -1,0 +1,436 @@
+/* Booking.css — Weekend slot calendar styles */
+
+/* ── Section wrapper ── */
+.booking {
+  background: var(--soft-gray);
+}
+
+.booking-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* ── Admin controls ── */
+.admin-area {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-admin-toggle {
+  background: none;
+  border: 2px solid var(--blue-mid);
+  color: var(--blue-mid);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 8px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-admin-toggle:hover {
+  background: var(--blue-mid);
+  color: var(--white);
+}
+
+.btn-admin-exit {
+  background: var(--blue);
+  color: var(--yellow);
+  border: none;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 8px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-admin-exit:hover { opacity: 0.85; }
+
+.admin-login-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.admin-login-box input {
+  padding: 8px 14px;
+  border: 2px solid #c5d9e8;
+  border-radius: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.admin-login-box input:focus { border-color: var(--teal); }
+
+.admin-login-box button {
+  background: var(--teal);
+  color: var(--white);
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.admin-login-box button:hover { background: var(--teal-dark); }
+
+/* ── Admin bookings table ── */
+.admin-panel {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 20px rgba(30, 58, 95, 0.09);
+}
+
+.admin-panel-title {
+  font-family: 'Fredoka One', cursive;
+  color: var(--blue);
+  font-size: 1.3rem;
+  margin-bottom: 18px;
+}
+
+.no-bookings {
+  color: #7a9bb0;
+  font-style: italic;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  min-width: 680px;
+}
+
+.bookings-table th {
+  background: var(--blue);
+  color: var(--white);
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.bookings-table th:first-child { border-radius: 8px 0 0 0; }
+.bookings-table th:last-child  { border-radius: 0 8px 0 0; }
+
+.bookings-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #e4eef5;
+  vertical-align: middle;
+}
+
+.bookings-table tr:last-child td { border-bottom: none; }
+
+.bookings-table tr:nth-child(even) td {
+  background: #f7fbfd;
+}
+
+.btn-cancel {
+  background: #ff6b6b;
+  color: var(--white);
+  border: none;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-cancel:hover { background: #e63131; }
+
+/* ── Success banner ── */
+.success-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #d4fdf0;
+  border: 2px solid var(--green);
+  color: #0d6e52;
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin-bottom: 32px;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.success-close {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #0d6e52;
+  line-height: 1;
+  padding: 0 4px;
+}
+
+/* ── Weekend grid ── */
+.weekend-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+/* ── Date card ── */
+.date-card {
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: 0 3px 14px rgba(30, 58, 95, 0.08);
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.date-card:hover {
+  box-shadow: 0 6px 24px rgba(30, 58, 95, 0.14);
+}
+
+.date-card--full {
+  opacity: 0.7;
+}
+
+.date-card--open {
+  border-color: var(--teal);
+}
+
+.date-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.date-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.date-weekday {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--teal-dark);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.date-label {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.1rem;
+  color: var(--blue);
+}
+
+.date-badge {
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+.badge--open {
+  background: #d4fdf0;
+  color: #0d6e52;
+}
+
+.badge--full {
+  background: #ffe0e0;
+  color: #b03030;
+}
+
+.date-chevron {
+  font-size: 0.7rem;
+  color: #8aacbf;
+}
+
+/* ── Slot list ── */
+.slot-list {
+  border-top: 1px solid #e4eef5;
+}
+
+.slot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  border-bottom: 1px solid #f0f7fb;
+  transition: background 0.15s;
+}
+
+.slot:last-child { border-bottom: none; }
+
+.slot--available {
+  cursor: pointer;
+}
+
+.slot--available:hover {
+  background: #f0fbff;
+}
+
+.slot--booked {
+  cursor: default;
+  background: #fafafa;
+}
+
+.slot-time {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #2d4f65;
+}
+
+.slot-status {
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 50px;
+}
+
+.status--open {
+  background: var(--teal);
+  color: var(--white);
+}
+
+.status--booked {
+  background: #ffe0e0;
+  color: #9b3030;
+}
+
+/* ── Modal ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 30, 50, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 24px;
+}
+
+.modal {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 36px 32px;
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  animation: modalIn 0.25s ease;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.92) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #7a9bb0;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.modal-close:hover { color: var(--blue); }
+
+.modal-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.5rem;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+
+.modal-subtitle {
+  color: #4a6b7d;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.modal-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.field-label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--blue);
+}
+
+.field-label input,
+.field-label select {
+  padding: 10px 14px;
+  border: 2px solid #c5d9e8;
+  border-radius: 10px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+  background: var(--white);
+  color: #1a2e3b;
+}
+
+.field-label input:focus,
+.field-label select:focus {
+  border-color: var(--teal);
+}
+
+.form-error {
+  color: #c0392b;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.modal-submit {
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .weekend-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal {
+    padding: 28px 20px;
+  }
+
+  .admin-panel {
+    padding: 20px 16px;
+  }
+}
