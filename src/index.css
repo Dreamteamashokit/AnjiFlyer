@@ -1,0 +1,100 @@
+/* index.css — Global styles for Neighborhood Shine */
+
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap');
+
+/* ── Color palette ── */
+:root {
+  --teal:       #0abde3;
+  --teal-dark:  #0097b2;
+  --teal-light: #c8f5ff;
+  --blue:       #1e3a5f;
+  --blue-mid:   #2176ae;
+  --yellow:     #ffd32a;
+  --green:      #1dd1a1;
+  --white:      #ffffff;
+  --soft-gray:  #f4f9fb;
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #f0fbff;
+  color: #1a2e3b;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Remove Vite default root constraints */
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  text-align: left;
+  border: none;
+}
+
+/* ── Layout helpers ── */
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+section { padding: 88px 24px; }
+
+/* ── Shared section header elements ── */
+.section-label {
+  display: inline-block;
+  background: var(--teal-light);
+  color: var(--teal-dark);
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 5px 18px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--blue);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.section-desc {
+  font-size: 1.05rem;
+  color: #4a6b7d;
+  max-width: 620px;
+  line-height: 1.75;
+}
+
+/* Colored underline beneath section titles */
+.title-underline {
+  width: 60px;
+  height: 5px;
+  background: linear-gradient(90deg, var(--teal), var(--blue-mid));
+  border-radius: 3px;
+  margin: 14px 0 26px;
+}
+
+/* ── Scroll-reveal animation ── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

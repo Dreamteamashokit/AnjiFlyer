@@ -1,0 +1,145 @@
+/* Hero.css — Full-screen banner styles */
+
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 55%, var(--teal) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 24px 70px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative floating circles */
+.hero-bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
+.hero-bubble--1 { width: 520px; height: 520px; top: -130px; left: -130px; }
+.hero-bubble--2 { width: 360px; height: 360px; bottom: -80px;  right: -60px; }
+.hero-bubble--3 { width: 200px; height: 200px; top: 40%;       right: 8%;   animation: float 6s ease-in-out infinite; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-22px); }
+}
+
+/* The centered content wrapper */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  width: 100%;
+  animation: fadeUp 0.9s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* Small badge pill at the top */
+.hero-badge {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--blue);
+  font-weight: 800;
+  font-size: 0.82rem;
+  padding: 6px 20px;
+  border-radius: 50px;
+  margin-bottom: 22px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+}
+
+/* Main title */
+.hero-title {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.22);
+}
+
+.hero-title--accent { color: var(--teal); }
+
+/* Subtitle */
+.hero-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: #b8e8f7;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* "By: ..." credit line */
+.hero-by {
+  font-size: 1rem;
+  color: var(--yellow);
+  margin-bottom: 36px;
+  letter-spacing: 0.4px;
+}
+
+/* Button row */
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+/* ── Shared button styles (used across the site) ── */
+.btn {
+  display: inline-block;
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  font-family: 'Nunito', sans-serif;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+
+.btn--primary  { background: var(--yellow); color: var(--blue); }
+.btn--outline  { background: transparent; color: var(--white); border: 2.5px solid rgba(255,255,255,0.55); }
+.btn--outline:hover { background: rgba(255,255,255,0.1); }
+
+/* Photo placeholder box */
+.hero-image-box {
+  margin-top: 52px;
+  width: 100%;
+  max-width: 720px;
+  height: 240px;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(255, 255, 255, 0.07);
+  border: 2px dashed rgba(255, 255, 255, 0.28);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.hero-image-box__icon { font-size: 3.2rem; }
+
+@media (max-width: 480px) {
+  .hero-image-box { height: 160px; }
+}

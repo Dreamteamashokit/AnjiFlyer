@@ -1,0 +1,104 @@
+/* Pricing.css */
+
+.pricing { background: var(--white); }
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 28px;
+  margin-top: 36px;
+}
+
+/* Base pricing card */
+.pricing-card {
+  background: var(--soft-gray);
+  border-radius: 24px;
+  padding: 32px 28px;
+  box-shadow: 0 4px 20px rgba(10, 189, 227, 0.12);
+  border: 2px solid transparent;
+  transition: transform 0.25s, border-color 0.25s;
+}
+
+.pricing-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--teal);
+}
+
+/* Featured (highlighted) card */
+.pricing-card--featured {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);
+  color: var(--white);
+}
+
+.pricing-card__title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.3rem;
+  color: var(--blue);
+  margin-bottom: 18px;
+}
+
+.pricing-card--featured .pricing-card__title { color: var(--yellow); }
+
+/* Each price row */
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(10, 189, 227, 0.25);
+}
+
+.price-row:last-of-type { border-bottom: none; }
+
+.price-row__label {
+  color: #4a6b7d;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.price-row__amount {
+  font-weight: 800;
+  color: var(--teal-dark);
+  font-size: 1.05rem;
+}
+
+.pricing-card--featured .price-row__label  { color: #b8e8f7; }
+.pricing-card--featured .price-row__amount { color: var(--yellow); }
+.pricing-card--featured .price-row         { border-bottom-color: rgba(255,255,255,0.15); }
+
+/* Subheadings inside the car washing card */
+.price-group-heading {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--teal-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin: 14px 0 6px;
+}
+
+/* "Best Value" badge */
+.pricing-badge {
+  margin-top: 22px;
+  text-align: center;
+  background: var(--yellow);
+  color: var(--blue);
+  font-weight: 800;
+  font-size: 0.88rem;
+  padding: 8px 20px;
+  border-radius: 50px;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Yellow note at the bottom */
+.pricing-note {
+  margin-top: 32px;
+  background: #fff9dc;
+  border-left: 5px solid var(--yellow);
+  padding: 16px 22px;
+  border-radius: 0 16px 16px 0;
+  color: #5a4a00;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.65;
+}

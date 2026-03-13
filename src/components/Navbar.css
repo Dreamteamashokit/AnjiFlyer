@@ -1,0 +1,124 @@
+/* Navbar.css — Styles for the top navigation bar */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--blue);
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  transition: box-shadow 0.3s;
+}
+
+/* Add shadow once user scrolls */
+.navbar.scrolled {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Brand name / logo */
+.nav-logo {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.35rem;
+  color: var(--yellow);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+/* Nav link list */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #cce9ff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--yellow);
+}
+
+/* Special "Request Service" button in nav */
+.nav-cta {
+  background: var(--teal) !important;
+  color: var(--white) !important;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-weight: 800 !important;
+  transition: background 0.2s, transform 0.2s !important;
+}
+
+.nav-cta:hover {
+  background: var(--teal-dark) !important;
+  transform: translateY(-2px);
+}
+
+/* ── Hamburger button (mobile only) ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: var(--white);
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Animate hamburger into an X when menu is open */
+.hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* ── Mobile styles ── */
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    background: var(--blue);
+    padding: 8px 0 16px;
+  }
+
+  .nav-links.open { display: flex; }
+
+  .nav-links li { width: 100%; }
+
+  .nav-links a {
+    display: block;
+    padding: 12px 32px;
+    font-size: 1rem;
+  }
+
+  .nav-cta {
+    margin: 6px 24px 0 !important;
+    border-radius: 10px !important;
+    text-align: center;
+  }
+}

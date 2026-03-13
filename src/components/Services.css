@@ -1,0 +1,68 @@
+/* Services.css */
+
+.services { background: var(--soft-gray); }
+
+.services-head { text-align: center; }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  margin-top: 40px;
+}
+
+/* Base card styles */
+.service-card {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 38px 30px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(10, 189, 227, 0.14);
+  transition: transform 0.25s, box-shadow 0.25s;
+  border-top: 5px solid transparent;
+  cursor: default;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 18px 44px rgba(10, 189, 227, 0.24);
+}
+
+/* Accent colors per card type */
+.service-card--teal  { border-top-color: var(--teal); }
+.service-card--blue  { border-top-color: var(--blue-mid); }
+.service-card--green { border-top-color: var(--green); }
+
+/* Emoji icon */
+.service-card__icon {
+  font-size: 3.4rem;
+  display: block;
+  margin-bottom: 18px;
+}
+
+.service-card__title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.45rem;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+
+.service-card__desc {
+  color: #5a7a8e;
+  font-size: 0.97rem;
+  line-height: 1.65;
+}
+
+/* Tag pill at the bottom of the card */
+.service-tag {
+  display: inline-block;
+  background: var(--teal-light);
+  color: var(--teal-dark);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 5px 16px;
+  border-radius: 50px;
+  margin-top: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}

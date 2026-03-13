@@ -1,0 +1,33 @@
+/* Footer.css */
+
+.footer {
+  background: #0d1e2b;
+  color: #7aa0b4;
+  text-align: center;
+  padding: 36px 24px;
+  font-size: 0.92rem;
+  line-height: 2;
+}
+
+.footer__brand {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.2rem;
+  color: var(--teal);
+  margin-bottom: 4px;
+}
+
+.footer__by strong { color: var(--white); }
+
+.footer__contact a {
+  color: #7aa0b4;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer__contact a:hover { color: var(--teal); }
+
+.footer__copy {
+  margin-top: 6px;
+  font-size: 0.82rem;
+  color: #4a6070;
+}

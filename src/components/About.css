@@ -1,0 +1,75 @@
+/* About.css */
+
+.about { background: var(--white); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 52px;
+  align-items: center;
+}
+
+/* Colored stats card */
+.about-card {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);
+  border-radius: 28px;
+  padding: 40px;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(30, 58, 95, 0.3);
+}
+
+.about-card::after {
+  content: '✨';
+  position: absolute;
+  font-size: 7rem;
+  right: -16px;
+  bottom: -16px;
+  opacity: 0.08;
+}
+
+.about-card__title {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.5rem;
+  color: var(--yellow);
+  margin-bottom: 10px;
+}
+
+.about-card__text {
+  color: #b8e8f7;
+  font-size: 0.97rem;
+  line-height: 1.7;
+}
+
+/* 2×2 grid of stat boxes */
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.stat-box {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 18px;
+  text-align: center;
+}
+
+.stat-number {
+  font-family: 'Fredoka One', cursive;
+  font-size: 2rem;
+  color: var(--yellow);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #b8e8f7;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+}
