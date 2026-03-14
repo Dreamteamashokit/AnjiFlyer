@@ -78,7 +78,7 @@ export default function Booking() {
 
   // Booking modal state
   const [bookingTarget, setBookingTarget] = useState(null) // { date, slot }
-  const [form, setForm] = useState({ name: '', phone: '', email: '', service: SERVICES[0], street: '', city: '', pincode: '' })
+  const [form, setForm] = useState({ name: '', phone: '', email: '', services: [], street: '', city: '', pincode: '' })
   const [formError, setFormError] = useState('')
   const [successMsg, setSuccessMsg] = useState('')
 
@@ -101,7 +101,7 @@ export default function Booking() {
   const openBooking = (date, slot) => {
     if (isSlotBooked(date, slot.id)) return
     setBookingTarget({ date, slot })
-    setForm({ name: '', phone: '', email: '', service: SERVICES[0], street: '', city: '', pincode: '' })
+    setForm({ name: '', phone: '', email: '', services: [], street: '', city: '', pincode: '' })
     setFormError('')
   }
 
@@ -112,6 +112,7 @@ export default function Booking() {
     if (!form.street.trim()) return setFormError('Please enter your street address.')
     if (!form.city.trim()) return setFormError('Please enter your city.')
     if (!form.pincode.trim()) return setFormError('Please enter your pin code.')
+    if (form.services.length === 0) return setFormError('Please select at least one service.')
 
     const key = slotKey(bookingTarget.date, bookingTarget.slot.id)
     const updated = {
@@ -239,7 +240,7 @@ export default function Booking() {
                             <td>{b.street || '—'}</td>
                             <td>{b.city || '—'}</td>
                             <td>{b.pincode || '—'}</td>
-                            <td>{b.service}</td>
+                            <td>{Array.isArray(b.services) ? b.services.join(', ') : b.service || '—'}</td>
                             <td>{new Date(b.bookedAt).toLocaleString()}</td>
                             <td>
                               <button
@@ -396,15 +397,26 @@ export default function Booking() {
                 </label>
               </div>
 
-              <label className="field-label">
-                Service
-                <select
-                  value={form.service}
-                  onChange={e => setForm(f => ({ ...f, service: e.target.value }))}
-                >
-                  {SERVICES.map(s => <option key={s}>{s}</option>)}
-                </select>
-              </label>
+              <div className="field-label">
+                Service (select all that apply) *
+                <div className="service-checkboxes">
+                  {SERVICES.map(s => (
+                    <label key={s} className="checkbox-label">
+                      <input
+                        type="checkbox"
+                        checked={form.services.includes(s)}
+                        onChange={e => setForm(f => ({
+                          ...f,
+                          services: e.target.checked
+                            ? [...f.services, s]
+                            : f.services.filter(x => x !== s),
+                        }))}
+                      />
+                      {s}
+                    </label>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {formError && <p className="form-error">{formError}</p>}
